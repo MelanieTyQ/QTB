@@ -1,0 +1,171 @@
+/*
+Theme Name: Health Quiz Child Theme
+Description: Child theme of Twenty Twenty-Four for health quiz application
+Author: Melanie Queenie Ty Bolaños
+Template: twentytwentyfour
+Version: 1.0
+*/
+
+/* Import parent theme styles - this will be handled by functions.php */
+
+/* Custom Quiz Styles */
+:root {
+    --quiz-primary: #764ba2;
+    --quiz-secondary: #667eea;
+    --quiz-gradient: linear-gradient(135deg, var(--quiz-secondary) 0%, var(--quiz-primary) 100%);
+    --quiz-white: #ffffff;
+    --quiz-text: #333333;
+    --quiz-light-gray: #f8f9fa;
+    --quiz-border-radius: 15px;
+    --quiz-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Override Twenty Twenty-Four styles for quiz pages */
+body.page-template-page-quiz,
+body.page-template-page-results {
+    background: var(--quiz-gradient);
+    min-height: 100vh;
+}
+
+/* Quiz container styles */
+.wp-block-group.quiz-container {
+    background: var(--quiz-white);
+    border-radius: var(--quiz-border-radius);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: var(--quiz-shadow);
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.quiz-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--quiz-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.quiz-description {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Form styling for Forminator integration */
+.forminator-ui.forminator-quiz {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.forminator-question {
+    background: var(--quiz-light-gray);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.forminator-question-title {
+    color: var(--quiz-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.forminator-answer label {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background: var(--quiz-white);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.forminator-answer label:hover {
+    background: #f0f0f0;
+    border-color: var(--quiz-primary);
+}
+
+.forminator-answer input[type="radio"] {
+    margin-right: 0.75rem;
+    accent-color: var(--quiz-primary);
+}
+
+/* Button styles */
+.forminator-button {
+    background: var(--quiz-gradient) !important;
+    border: none !important;
+    border-radius: 25px !important;
+    padding: 12px 30px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: transform 0.3s ease !important;
+}
+
+.forminator-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4) !important;
+}
+
+/* Results page styles */
+.results-content {
+    text-align: center;
+}
+
+.result-item {
+    background: var(--quiz-light-gray);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid var(--quiz-primary);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .wp-block-group.quiz-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .quiz-title {
+        font-size: 2rem;
+    }
+    
+    .forminator-question {
+        padding: 1rem;
+    }
+}
+
+/* PWA specific styles */
+.pwa-install-banner {
+    background: var(--quiz-gradient);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-radius: var(--quiz-border-radius);
+    margin: 1rem 0;
+}
+
+.pwa-install-button {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.pwa-install-button:hover {
+    background: white;
+    color: var(--quiz-primary);
+}
