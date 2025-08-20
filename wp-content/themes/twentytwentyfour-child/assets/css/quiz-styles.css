@@ -1,0 +1,201 @@
+/* Additional quiz-specific styles for child theme */
+
+/* Enhanced form styling */
+.forminator-ui {
+    font-family: inherit !important;
+}
+
+.forminator-quiz--form {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.forminator-question--wrapper {
+    margin-bottom: 2rem !important;
+}
+
+.forminator-question--title {
+    background: var(--quiz-primary) !important;
+    color: white !important;
+    padding: 1rem !important;
+    border-radius: 8px 8px 0 0 !important;
+    margin: 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+
+.forminator-question--body {
+    background: #f8f9fa !important;
+    border: 2px solid #e9ecef !important;
+    border-top: none !important;
+    border-radius: 0 0 8px 8px !important;
+    padding: 1.5rem !important;
+}
+
+.forminator-answer {
+    margin: 0.75rem 0 !important;
+}
+
+.forminator-answer--design {
+    background: white !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 6px !important;
+    padding: 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.forminator-answer--design:hover {
+    border-color: var(--quiz-primary) !important;
+    background: #f0f0f0 !important;
+}
+
+.forminator-answer--design label {
+    padding: 1rem !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.forminator-answer input[type="radio"] {
+    margin-right: 1rem !important;
+    accent-color: var(--quiz-primary) !important;
+    transform: scale(1.2) !important;
+}
+
+/* Progress bar styling */
+.forminator-quiz--progress {
+    background: #e9ecef !important;
+    border-radius: 10px !important;
+    height: 8px !important;
+    margin: 1rem 0 2rem 0 !important;
+    overflow: hidden !important;
+}
+
+.forminator-quiz--progress-bar {
+    background: var(--quiz-gradient) !important;
+    height: 100% !important;
+    border-radius: 10px !important;
+    transition: width 0.3s ease !important;
+}
+
+/* Results display enhancements */
+.quiz-result-summary {
+    background: var(--quiz-gradient);
+    color: white;
+    padding: 2rem;
+    border-radius: var(--quiz-border-radius);
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.quiz-result-score {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.quiz-result-message {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Email lookup form styling */
+.email-lookup input[type="email"] {
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.email-lookup input[type="email"]:focus {
+    border-color: var(--quiz-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.1);
+}
+
+/* Loading animation */
+#loading {
+    position: relative;
+}
+
+#loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--quiz-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile responsiveness for results */
+@media (max-width: 768px) {
+    .result-item {
+        padding: 1rem;
+    }
+    
+    .score-display {
+        grid-column: 1 / -1;
+    }
+    
+    .quiz-result-score {
+        font-size: 2rem;
+    }
+    
+    .email-lookup form {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .email-lookup button {
+        align-self: flex-start;
+    }
+}
+
+/* PWA specific enhancements */
+@media (display-mode: standalone) {
+    .site-header {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    .quiz-container {
+        margin-top: 1rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --quiz-text: #ffffff;
+        --quiz-light-gray: #2a2a2a;
+        --quiz-white: #1a1a1a;
+    }
+    
+    .forminator-question--body {
+        background: var(--quiz-light-gray) !important;
+        color: var(--quiz-text) !important;
+    }
+    
+    .forminator-answer--design {
+        background: var(--quiz-white) !important;
+        color: var(--quiz-text) !important;
+    }
+    
+    .result-item {
+        background: var(--quiz-light-gray);
+        color: var(--quiz-text);
+    }
+}
